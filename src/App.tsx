@@ -77,9 +77,8 @@ function App() {
     <div className='overflow-hidden w-full h-full relative'>
       <Menu />
       <Chat />
-      <ApiPopup />
     </div>
-  );
+  ); // <ApiPopup />
 }
 
 export default App;
