@@ -8,18 +8,22 @@ export interface ConfigSlice {
   theme: Theme;
   autoTitle: boolean;
   hideMenuOptions: boolean;
+  advancedMode: boolean;
   defaultChatConfig: ConfigInterface;
   defaultSystemMessage: string;
   hideSideMenu: boolean;
   enterToSubmit: boolean;
+  inlineLatex: boolean;
   setOpenConfig: (openConfig: boolean) => void;
   setTheme: (theme: Theme) => void;
   setAutoTitle: (autoTitle: boolean) => void;
+  setAdvancedMode: (advancedMode: boolean) => void;
   setDefaultChatConfig: (defaultChatConfig: ConfigInterface) => void;
   setDefaultSystemMessage: (defaultSystemMessage: string) => void;
   setHideMenuOptions: (hideMenuOptions: boolean) => void;
   setHideSideMenu: (hideSideMenu: boolean) => void;
   setEnterToSubmit: (enterToSubmit: boolean) => void;
+  setInlineLatex: (inlineLatex: boolean) => void;
 }
 
 export const createConfigSlice: StoreSlice<ConfigSlice> = (set, get) => ({
@@ -29,8 +33,10 @@ export const createConfigSlice: StoreSlice<ConfigSlice> = (set, get) => ({
   hideSideMenu: false,
   autoTitle: false,
   enterToSubmit: true,
+  advancedMode: true,
   defaultChatConfig: _defaultChatConfig,
   defaultSystemMessage: _defaultSystemMessage,
+  inlineLatex: false,
   setOpenConfig: (openConfig: boolean) => {
     set((prev: ConfigSlice) => ({
       ...prev,
@@ -47,6 +53,12 @@ export const createConfigSlice: StoreSlice<ConfigSlice> = (set, get) => ({
     set((prev: ConfigSlice) => ({
       ...prev,
       autoTitle: autoTitle,
+    }));
+  },
+  setAdvancedMode: (advancedMode: boolean) => {
+    set((prev: ConfigSlice) => ({
+      ...prev,
+      advancedMode: advancedMode,
     }));
   },
   setDefaultChatConfig: (defaultChatConfig: ConfigInterface) => {
@@ -77,6 +89,12 @@ export const createConfigSlice: StoreSlice<ConfigSlice> = (set, get) => ({
     set((prev: ConfigSlice) => ({
       ...prev,
       enterToSubmit: enterToSubmit,
+    }));
+  },
+  setInlineLatex: (inlineLatex: boolean) => {
+    set((prev: ConfigSlice) => ({
+      ...prev,
+      inlineLatex: inlineLatex,
     }));
   },
 });

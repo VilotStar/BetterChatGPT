@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import useStore from '@store/store';
+import useCloudAuthStore from '@store/cloud-auth-store';
 
 import PopupModal from '@components/PopupModal';
 import SettingIcon from '@icon/SettingIcon';
 import ThemeSwitcher from '@components/Menu/MenuOptions/ThemeSwitcher';
 import LanguageSelector from '@components/LanguageSelector';
 import AutoTitleToggle from './AutoTitleToggle';
+import AdvancedModeToggle from './AdvencedModeToggle';
+import InlineLatexToggle from './InlineLatexToggle';
+
 import PromptLibraryMenu from '@components/PromptLibraryMenu';
 import ChatConfigMenu from '@components/ChatConfigMenu';
 import EnterToSubmitToggle from './EnterToSubmitToggle';
@@ -42,6 +46,8 @@ const SettingsMenu = () => {
             <div className='flex flex-col gap-3'>
               <AutoTitleToggle />
               <EnterToSubmitToggle />
+              <InlineLatexToggle />
+              <AdvancedModeToggle />
             </div>
             <PromptLibraryMenu />
             <ChatConfigMenu />
